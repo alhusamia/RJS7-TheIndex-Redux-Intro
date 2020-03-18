@@ -20,7 +20,7 @@ const AuthorCard = props => {
             <span>{authorName}</span>
           </h5>
           <small className="card-text">{author.books.length} books</small>
-          <button className="btn btn-danger btn-block" onClick={()=>props.deleteAuthor(author.id)}>DELETE</button>
+          <button className="btn btn-danger btn-block" onClick={()=>props.deleteAuthor(author)}>DELETE</button>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@ const AuthorCard = props => {
 
 const mapDispatchToProps= dispatch =>{
   return{
-    deleteAuthor:dispatch(deleteAuthor())
+    deleteAuthor:author => dispatch(deleteAuthor(author))
   }
 }
 export default connect(null,mapDispatchToProps) (AuthorCard);
